@@ -1,0 +1,57 @@
+---
+import logoVSC from "../assets/logos/vsc-32.png";
+import logoPS from "../assets/logos/ps-32.png";
+import LinkIcon from "./LinkIcon.astro";
+
+const projects = [
+  {
+    title: "Db2 Embedded SQL Syntax for C/C++",
+    description:
+      "VS Code extension for embedded IBM Db2 SQL statements in C/C++ code",
+    link: {
+      href: "https://marketplace.visualstudio.com/items?itemName=spburtsev.db2-embedded-sql-syntax-c-cpp",
+      label: "Visual Studio Marketplace",
+    },
+    logo: logoVSC,
+  },
+  {
+    title: "Polansoft website",
+    description:
+      "A website for Polansoft, mainframe software development company based in Poland",
+    link: {
+      href: "https://polansoft.com",
+      label: "Website Link",
+    },
+    logo: logoPS,
+  },
+];
+---
+
+<ul
+  role="list"
+  class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+>
+  {
+    projects.map((project) => (
+      <li class="group relative flex flex-col items-start">
+        <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-zinc-900/5 border border-zinc-700/50 bg-zinc-800 ring-0">
+          <img src={project.logo.src} alt="" class="h-8 w-8" />
+        </div>
+        <h2 class="mt-6 text-base font-semibold text-zinc-100">
+          <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl bg-zinc-800/50" />
+          <a href={project.link.href}>
+            <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+            <span class="relative z-10">{project.title}</span>
+          </a>
+        </h2>
+        <p class="relative z-10 mt-2 text-sm text-zinc-400">
+          {project.description}
+        </p>
+        <p class="relative z-10 mt-6 flex text-sm font-medium transition group-hover:text-emerald-500 text-zinc-200">
+          <LinkIcon className="h-6 w-6 flex-none" />
+          <span class="ml-2">{project.link.label}</span>
+        </p>
+      </li>
+    ))
+  }
+</ul>

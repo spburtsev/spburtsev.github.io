@@ -1,11 +1,59 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import GitHubIcon from "../components/GitHubIcon.astro";
+import LinkedInIcon from "../components/LinkedInIcon.astro";
+import mg from "../assets/mg.png";
+import Projects from "../components/Projects.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const iconClass =
+  "h-6 w-6 transition fill-zinc-400 group-hover:fill-emerald-500";
 ---
 
 <Layout>
-	<Welcome />
+  <img
+    src={mg.src}
+    alt="avatar"
+    class="inline-block size-14 rounded-full outline -outline-offset-1 outline-black/5 dark:outline-white/10"
+  />
+  <div class="mt-9">
+    <div class="max-w-2xl">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
+        Software engineer, passionate about development tools and
+        infrastructure.
+      </h1>
+      <p class="mt-6 text-base text-zinc-400">
+        I’m Sergei, a software engineer based in Kharkiv, Ukraine. I develop
+        database and infrastructure management tools professionaly and do other
+        programming stuff for fun.
+      </p>
+      <div class="mt-6 flex gap-6">
+        <a
+          href="https://github.com/spburtsev"
+          aria-label="Follow on GitHub"
+          class="group"
+          ><GitHubIcon className={iconClass} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/spburtsev/"
+          aria-label="Follow on LinkedIn"
+          class="group"
+          ><LinkedInIcon className={iconClass} />
+        </a>
+        <a
+          href="mailto:spburtsev@proton.me"
+          class="flex text-sm font-medium transition text-zinc-200 hover:text-emerald-500"
+        >
+          spburtsev@proton.me
+        </a>
+      </div>
+    </div>
+  </div>
+  <section class="mt-18">
+    <div class="border-b pb-5 border-white/10 mb-18">
+      <h3 class="text-2xl font-semibold text-zinc-200">
+        Projects
+      </h3>
+    </div>
+    <Projects />
+  </section>
 </Layout>
